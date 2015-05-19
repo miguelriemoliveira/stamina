@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!--    Records raw depth image and RGB image from OpenNI device (kinect).
+The depth image is registered with OpenNI firmware, using default calibration.-->
+<launch>
+
+<arg name="wrist_camera" default="wrist_camera"/>
+<arg name="wsright_camera" default="workspace_camera_right"/>
+<arg name="wsfront_camera" default="kittingbox_camera"/>
+
+
+<node pkg="rosbag" type="record" name="record" output="screen" args="/tf /$(arg wrist_camera)/depth_registered/camera_info /$(arg wrist_camera)/depth_registered/image_raw /$(arg wrist_camera)/rgb/camera_info /$(arg wrist_camera)/rgb/image_raw /$(arg wsright_camera)/depth_registered/camera_info /$(arg wsright_camera)/depth_registered/image_raw /$(arg wsright_camera)/rgb/camera_info /$(arg wsright_camera)/rgb/image_raw /$(arg wsfront_camera)/depth_registered/camera_info /$(arg wsfront_camera)/depth_registered/image_raw /$(arg wsfront_camera)/rgb/camera_info /$(arg wsfront_camera)/rgb/image_raw"/>
+</launch>
