@@ -2,29 +2,25 @@
 <!--    Records raw depth image and RGB image from OpenNI device (kinect).
 The depth image is registered with OpenNI firmware, using default calibration.-->
 <launch>
+  <arg name="wrist_camera" default="wrist_camera"/>
+  <arg name="wsright_camera" default="workspace_camera_right"/>
+  <arg name="wsfront_camera" default="kittingbox_camera"/>
+  <arg name="throttle" default="3.0"/>
 
-<arg name="wrist_camera" default="wrist_camera"/>
-<arg name="wsright_camera" default="workspace_camera_right"/>
-<arg name="wsfront_camera" default="kittingbox_camera"/>
-<arg name="throttle" default="3.0"/>
-
-<node name="throttle_wrist_depth_camera_info" pkg="topic_tools" type="throttle" args=" messages /$(arg wrist_camera)/depth_registered/camera_info $(arg throttle)" required="true"/>
-<node name="throttle_wrist_depth_camera" pkg="topic_tools" type="throttle" args=" messages /$(arg wrist_camera)/depth_registered/image_raw $(arg throttle)" required="true"/>
-<node name="throttle_wrist_rgb_camera_info" pkg="topic_tools" type="throttle" args=" messages /$(arg wrist_camera)/rgb_registered/camera_info $(arg throttle)" required="true"/>
-<node name="throttle_wrist_rgb_camera" pkg="topic_tools" type="throttle" args=" messages /$(arg wrist_camera)/rgb_registered/image_raw $(arg throttle)" required="true"/>
-
- <!--
+  <!--<node name="throttle_wrist_depth_camera_info" pkg="topic_tools" type="throttle" args=" messages /$(arg wrist_camera)/depth_registered/camera_info $(arg throttle)" required="true"/>-->
+  <!--<node name="throttle_wrist_depth_camera" pkg="topic_tools" type="throttle" args=" messages /$(arg wrist_camera)/depth_registered/image_raw $(arg throttle)" required="true"/>-->
+  <!--<node name="throttle_wrist_rgb_camera_info" pkg="topic_tools" type="throttle" args=" messages /$(arg wrist_camera)/rgb_registered/camera_info $(arg throttle)" required="true"/>-->
+  <!--<node name="throttle_wrist_rgb_camera" pkg="topic_tools" type="throttle" args=" messages /$(arg wrist_camera)/rgb_registered/image_raw $(arg throttle)" required="true"/>-->
+  
 <node name="throttle_wsright_depth_camera_info" pkg="topic_tools" type="throttle" args=" messages /$(arg wsright_camera)/depth_registered/camera_info $(arg throttle)" required="true"/>
 <node name="throttle_wsright_depth_camera" pkg="topic_tools" type="throttle" args=" messages /$(arg wsright_camera)/depth_registered/image_raw $(arg throttle)" required="true"/>
 <node name="throttle_wsright_rgb_camera_info" pkg="topic_tools" type="throttle" args=" messages /$(arg wsright_camera)/rgb_registered/camera_info $(arg throttle)" required="true"/>
 <node name="throttle_wsright_rgb_camera" pkg="topic_tools" type="throttle" args=" messages /$(arg wsright_camera)/rgb_registered/image_raw $(arg throttle)" required="true"/>
 
-<node name="throttle_wsfront_depth_camera_info" pkg="topic_tools" type="throttle" args=" messages /$(arg wsfront_camera)/depth_registered/camera_info $(arg throttle)" required="true"/>
-<node name="throttle_wsfront_depth_camera" pkg="topic_tools" type="throttle" args=" messages /$(arg wsfront_camera)/depth_registered/image_raw $(arg throttle)" required="true"/>
-<node name="throttle_wsfront_rgb_camera_info" pkg="topic_tools" type="throttle" args=" messages /$(arg wsfront_camera)/rgb_registered/camera_info $(arg throttle)" required="true"/>
-<node name="throttle_wsfront_rgb_camera" pkg="topic_tools" type="throttle" args=" messages /$(arg wsfront_camera)/rgb_registered/image_raw $(arg throttle)" required="true"/>
--->
+<!--<node name="throttle_wsfront_depth_camera_info" pkg="topic_tools" type="throttle" args=" messages /$(arg wsfront_camera)/depth_registered/camera_info $(arg throttle)" required="true"/>-->
+<!--<node name="throttle_wsfront_depth_camera" pkg="topic_tools" type="throttle" args=" messages /$(arg wsfront_camera)/depth_registered/image_raw $(arg throttle)" required="true"/>-->
+<!--<node name="throttle_wsfront_rgb_camera_info" pkg="topic_tools" type="throttle" args=" messages /$(arg wsfront_camera)/rgb_registered/camera_info $(arg throttle)" required="true"/>-->
+<!--<node name="throttle_wsfront_rgb_camera" pkg="topic_tools" type="throttle" args=" messages /$(arg wsfront_camera)/rgb_registered/image_raw $(arg throttle)" required="true"/>-->
 
- <!-- <node pkg="rosbag" type="record" name="record" output="screen" args="/tf /$(arg wrist_camera)/depth_registered/camera_info /$(arg wrist_camera)/depth_registered/image_raw /$(arg wrist_camera)/rgb/camera_info /$(arg wrist_camera)/rgb/image_raw /$(arg wsright_camera)/depth_registered/camera_info /$(arg wsright_camera)/depth_registered/image_raw /$(arg wsright_camera)/rgb/camera_info /$(arg wsright_camera)/rgb/image_raw /$(arg wsfront_camera)/depth_registered/camera_info /$(arg wsfront_camera)/depth_registered/image_raw /$(arg wsfront_camera)/rgb/camera_info /$(arg wsfront_camera)/rgb/image_raw /robot_model -O /tmp/auto.bag"/> -->
-
+  <node pkg="rosbag" type="record" name="record" output="screen" args="/tf /$(arg wrist_camera)/depth_registered/camera_info /$(arg wrist_camera)/depth_registered/image_raw /$(arg wrist_camera)/rgb/camera_info /$(arg wrist_camera)/rgb/image_raw /$(arg wsright_camera)/depth_registered/camera_info /$(arg wsright_camera)/depth_registered/image_raw /$(arg wsright_camera)/rgb/camera_info /$(arg wsright_camera)/rgb/image_raw /$(arg wsfront_camera)/depth_registered/camera_info /$(arg wsfront_camera)/depth_registered/image_raw /$(arg wsfront_camera)/rgb/camera_info /$(arg wsfront_camera)/rgb/image_raw /robot_model -O /tmp/auto.bag"/>
 </launch>
