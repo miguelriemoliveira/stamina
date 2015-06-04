@@ -2,7 +2,8 @@
 <!--    Records raw depth image and RGB image from OpenNI device (kinect).
 The depth image is registered with OpenNI firmware, using default calibration.-->
 <launch>
-  <arg name="camera" default="wrist_camera_right"/>
+  <!--<arg name="camera" default="wrist_camera"/>-->
+  <arg name="camera" default="workspace_camera_right"/>
   <arg name="throttle" default="5.0"/>
   <!--Define the throtle nodes -->
   <node name="t1" pkg="topic_tools" type="throttle" args=" messages /$(arg camera)/depth_registered/camera_info $(arg throttle)" required="true"/>
