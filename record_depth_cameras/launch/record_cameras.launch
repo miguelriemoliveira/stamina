@@ -8,7 +8,7 @@ The depth image is registered with OpenNI firmware, using default calibration.--
   <!--Define the throtle nodes -->
   <node name="t1" pkg="topic_tools" type="throttle" args=" messages /$(arg camera)/depth_registered/camera_info $(arg throttle)" required="true"/>
   <node name="t2" pkg="topic_tools" type="throttle" args=" messages /$(arg camera)/depth_registered/image_raw $(arg throttle)" required="true"/>
-  <node name="t3" pkg="topic_tools" type="throttle" args=" messages /$(arg camera)/rgb_registered/camera_info $(arg throttle)" required="true"/>
-  <node name="t4" pkg="topic_tools" type="throttle" args=" messages /$(arg camera)/rgb_registered/image_raw $(arg throttle)" required="true"/>
+  <node name="t3" pkg="topic_tools" type="throttle" args=" messages /$(arg camera)/rgb/camera_info $(arg throttle)" required="true"/>
+  <node name="t4" pkg="topic_tools" type="throttle" args=" messages /$(arg camera)/rgb/image_raw $(arg throttle)" required="true"/>
   <node pkg="rosbag" type="record" name="record" output="screen" args="/tf /$(arg camera)/depth_registered/camera_info_throttle /$(arg camera)/depth_registered/image_raw_throttle /$(arg camera)/rgb/camera_info_throttle /$(arg camera)/rgb/image_raw_throttle -O /tmp/auto.bag"/>
 </launch>
